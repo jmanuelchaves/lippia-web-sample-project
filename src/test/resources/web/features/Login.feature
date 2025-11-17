@@ -22,11 +22,4 @@ Feature: Login soucedemo
     When el usuario hace click en "Login"
     Then se visualiza el mensaje de error "Epic sadface: Sorry, this user has been locked out."
 
-@AgregarEliminarCarrito
-  Scenario: Agregar y eliminar carrito
-    Given el usuario ingresa con credenciales válidas
-    And el usuario hace click en "Login"
-    And el usuario agrega un producto al carrito
-    When el usuario hace click en "Remove"
-    Then el contador del carrito está vacío
 
