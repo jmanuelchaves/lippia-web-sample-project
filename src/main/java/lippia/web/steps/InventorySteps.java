@@ -19,6 +19,19 @@ public class InventorySteps extends PageSteps {
         InventoryService.VerificarCarrito();
     }
 
+    @And("^el usuario agrega un segundo producto al carrito$")
+    public void ClickAgregarAlCarrito2() {
+        InventoryService.ClickAgregarAlCarrito2();
+        InventoryService.VerificarCarrito2();
+    }
+
+
+    @When("^el usuario hace click en el carrito$")
+    public void ClickenCarrito() {
+        InventoryService.ClickenCarrito();
+    }
+
+
     @When("^el usuario hace click en \"Remove\"$")
     public void ClickEliminarCarrito() {
         InventoryService.ClickEliminarCarrito();

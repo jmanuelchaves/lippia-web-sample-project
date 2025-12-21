@@ -13,9 +13,12 @@ public class LoginSteps extends PageSteps {
     public void navegarWeb() {
         LoginService.navegarWeb();
     }
-    @Given("^el usuario ingresa con credenciales válidas$")
-    public void completarUsuarioYContrasena() {
-        LoginService.completarUsuarioYContrasena();
+
+    // USUARIO CON PARAMETROS
+    @Given("^el usuario ingresa con el usuario (.*) y el password (.*)$" )
+    public void completarUsuarioYContrasenaconParametros(String usuario, String password) {
+        LoginService.completarUsuarioYContrasenaconParametros(usuario,password);
+
     }
 
     @When("^el usuario hace click en \"Login\"$")
@@ -23,22 +26,9 @@ public class LoginSteps extends PageSteps {
         LoginService.clickBotonlogin();
     }
 
-    @Given("^el usuario ingresa con credenciales inválidas$")
-    public void completarUsuarioYContrasenainvalida() {
-        LoginService.completarUsuarioYContrasenainvalida();
-    }
-
-    @Then("^se visualiza el mensaje de error \"Epic sadface: Sorry, this user has been locked out.\"$")
-    public void homepage() {
-
-        LoginService.verificarMensajeError();
-    }
-
-    // USUARIO CON PARAMETROS
-    @Given("^el usuario ingresa con el usuario (.*) y el password (.*)$" )
-    public void completarUsuarioYContrasenaconParametros(String usuario, String password) {
-        LoginService.completarUsuarioYContrasenaconParametros(usuario,password);
-
+    @Then("^se visualiza el mensaje de error (.*)$")
+    public void homepage(String mensajeerror) {
+        LoginService.verificarMensajeError(mensajeerror);
     }
 
 }
